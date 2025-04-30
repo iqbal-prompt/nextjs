@@ -7,6 +7,7 @@ export default function Page() {
           <Input placeholder="Masukkan username"/>
           <Input placeholder="Masukkan sandi" type="password"/>
           <Button text="Login"/>
+          <span className="text-center font-bold"><a href="/daftar">Daftar disini</a></span>
       </div>
     </div>
   );
