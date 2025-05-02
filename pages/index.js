@@ -7,6 +7,7 @@ export default function Page() {
     const [password, setPassword] = useState("");
 
     const handleLogin = async () => {
+        console.log("Ngentodddd.......")
         const res = await fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/login", {
             method: "POST",
             headers: {
