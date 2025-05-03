@@ -8,6 +8,7 @@ import Link from "next/link"
 export default function Page() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const router = useRouter();
 
     const handleLogin = async () => {
         console.log("Allohuakbarr")
