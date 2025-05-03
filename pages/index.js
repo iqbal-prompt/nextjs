@@ -20,7 +20,11 @@ export default function Page() {
         })
 
         const data = await res.json()
-        alert(data.message)
+        data_str = JSON.stringify(data)
+        if(data.success) {
+          alert("Login Berhasil" + data_str);
+          console.log("Login Berhasil");
+        }
     }
 
     return (
