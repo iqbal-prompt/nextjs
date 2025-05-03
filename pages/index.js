@@ -23,10 +23,10 @@ export default function Page() {
         const data = await res.json()
         
         if(res.ok && data.success) {
-
+          router.push('/dashboard');
           alert("Login Berhasil" + data.success);
           console.log("Login Berhasil");
-          router.push('/dashboard');
+          
         } else {
           console.log("Gagal login....")
         }
