@@ -20,8 +20,7 @@ export default function Page() {
         })
 
         const data = await res.json()
-        const data_str = JSON.stringify(data)
-        console.log(data_str);
+        
         if(res.ok && data.success) {
           alert("Login Berhasil" + data_str);
           console.log("Login Berhasil");
