@@ -24,6 +24,8 @@ export default function Page() {
         if(res.ok && data.success) {
           alert("Login Berhasil" + data_str);
           console.log("Login Berhasil");
+        } else {
+          console.log("Gagal login....")
         }
     }
 
