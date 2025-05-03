@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button, Input } from "../components/UIComponents"
 import Link from "next/link"
-import { redirect } from "next/dist/server/api-utils"
 
 export default function Page() {
     const [username, setUsername] = useState("")
