@@ -12,6 +12,7 @@ export default function Page() {
         console.log("Allohuakbarr")
         const res = await fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/login", {
             method: "POST",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json"
             },
