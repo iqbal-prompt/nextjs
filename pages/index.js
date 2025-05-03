@@ -22,7 +22,7 @@ export default function Page() {
         const data = await res.json()
         
         if(res.ok && data.success) {
-          alert("Login Berhasil" + data_str);
+          alert("Login Berhasil" + data.success);
           console.log("Login Berhasil");
         } else {
           console.log("Gagal login....")
