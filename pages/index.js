@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button, Input } from "../components/UIComponents"
 import Link from "next/link"
+import { redirect } from "next/dist/server/api-utils"
 
 export default function Page() {
     const [username, setUsername] = useState("")
@@ -22,8 +23,10 @@ export default function Page() {
         const data = await res.json()
         
         if(res.ok && data.success) {
+
           alert("Login Berhasil" + data.success);
           console.log("Login Berhasil");
+          router.push('/dashboard');
         } else {
           console.log("Gagal login....")
         }
