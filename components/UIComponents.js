@@ -7,9 +7,10 @@ export function Button({text, onClick, bgColor = 'bg-blue-500', hoverColor = 'ho
         </button>
     );
 }
-export function Input({ placeholder, type = 'text' }) {
+export function Input({ placeholder, onChange, type = 'text' }) {
     return (
         <input
+        onChange = {onChange}
         type={type}
         placeholder={placeholder}
         className="px-5 py-3 border border-gray-300 rounded-lg w-full text-center"
