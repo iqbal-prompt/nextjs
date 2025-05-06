@@ -1,37 +1,32 @@
-import React from "react";  
+import React, { useEffect, useState } from "react";
 
-export default function Dashboard({ user }) {
-    return (
-        <div className="">
-            INI ADALAH HALAMAN DASHBOARD<br></br>
-            selamat datang {user}
-        </div>
-    )
-}
+export default function Dashboard() {
+  const [user, setUser] = useState(null);
 
-export async function getServerSideProps(context) {
-    const res = await fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/protected", {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-            Cookie: context.req.headers.cookie || ""
-        },
-    });
-
-    const data = await res.json();
-
-    if(!res.ok || !data.success) {
-        return {
-            redirect: {
-                destination: "/",
-                permanent: false,
-            },   
+  useEffect(() => {
+    fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/protected", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setUser(data.email);
+        } else {
+          window.location.href = "/";
         }
-    }
+      })
+      .catch((err) => {
+        console.error("Gagal ambil data:", err);
+        window.location.href = "/";
+      });
+  }, []);
 
-    return {
-        props: {
-            user: data.email || "email",
-        }
-    }
+  return (
+    <div>
+      INI ADALAH HALAMAN DASHBOARD
+      <br />
+      {user ? `Selamat datang ${user}` : "Memuat..."}
+    </div>
+  );
 }
