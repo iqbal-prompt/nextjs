@@ -1,4 +1,4 @@
-import { React } from "react";  
+import React from "react";  
 
 export default function Dashboard({ user }) {
     return (
@@ -10,7 +10,7 @@ export default function Dashboard({ user }) {
 }
 
 export async function getServerSideProps(context) {
-    const res = fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/protected", {
+    const res = await fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/protected", {
         method: 'GET',
         headers: {
             Cookie: context.req.headers.cookie || ""
@@ -21,7 +21,7 @@ export async function getServerSideProps(context) {
         return {
             redirect: {
                 destination: "/",
-                parameter: false,
+                permanent: false,
             },   
         }
     }
