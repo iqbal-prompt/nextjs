@@ -17,7 +17,9 @@ export async function getServerSideProps(context) {
             Cookie: context.req.headers.cookie || ""
         },
     });
-    console.log(res);
+
+    const data = await res.json();
+
     if(!res.ok || !data.success) {
         return {
             redirect: {
@@ -26,7 +28,7 @@ export async function getServerSideProps(context) {
             },   
         }
     }
-    const data = await res.json();
+
     return {
         props: {
             user: data.email || "email",
