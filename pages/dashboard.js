@@ -10,7 +10,7 @@ export default function Dashboard({ user }) {
 }
 
 export async function getServerSideProps(context) {
-    const res = fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/verify", {
+    const res = fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/protected", {
         method: 'GET',
         headers: {
             Cookie: context.req.headers.cookie || ""
