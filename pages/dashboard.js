@@ -16,6 +16,7 @@ export async function getServerSideProps(context) {
             Cookie: context.req.headers.cookie || ""
         },
     });
+    console.log(res);
     if(!res.ok) {
         return {
             redirect: {
