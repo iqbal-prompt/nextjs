@@ -12,6 +12,7 @@ export default function Dashboard({ user }) {
 export async function getServerSideProps(context) {
     const res = await fetch("https://vjb0sm07-4000.asse.devtunnels.ms/api/protected", {
         method: 'GET',
+        credentials: 'include',
         headers: {
             Cookie: context.req.headers.cookie || ""
         },
